@@ -1,0 +1,38 @@
+version: "3.8"
+services:
+  app:
+    container_name: notebook
+    image: "nginx"
+    environment: 
+      - https://github.com/docker-library/nginx
+    ports:
+      - "80:80"
+
+  web:
+    container_name: busapp
+    image: "mongo"
+    environment:
+      - https://github.com/docker-library/mongo
+    ports:
+      - "27017:27017"
+
+  operating-system:
+    container_name: testing
+    image: "alpine:latest"
+    environment:
+      - https://github.com/alpinelinux/docker-alpine
+    
+  database:
+    container_name: basebook
+    image: "postgres"
+    ports:
+      - "5432:5432"
+    environment:
+      - https://github.com/docker-library/postgres
+
+  operation:
+    container_name: linuxos
+    image: "ubuntu"
+    environment:
+      - https://github.com/ubuntulinux/docker-ubuntu
+      
